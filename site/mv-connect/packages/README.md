@@ -8,5 +8,6 @@ MVConnect now offers packages which are separate code projects to do certain tas
 | -----------------------------------------  | ---------------------------------------------------  |
 | [MVSENDGRID](./mvsendgrid/README.md)         | Tool to send email via SendGrid's Email Api        |
 | [MVETL](./mvetl/README.md)                   | Tool to extract data                               |
+| [AVALARA](./avalara/README.md)               | APIs for AVATAX Integration                        |
 
 <PageFooter />
