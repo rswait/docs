@@ -1,0 +1,17 @@
+1.	Download the repo
+2.	Compile the AVALARA.BP AVALARA.LIST.SUB routine (this is a prerequisite for the COMPILE routines)
+3.	Compile AVALARA.BP COMPILE.AVALARA.JBASE
+4.	Run COMPILE.AVALARA.JBASE – this will display the programs that need to be compiled; there's an option to compile all or you can select individual items. The compile routines will compile each item and diagnose from the BASIC output whether there was problem, and either mark the item as OK/Not OK (JBase and OPENQM should compile without any problems…).  Any items that do not compile will be listed at the end and require fixing whatever the compile issue was and then recompile when fixed.
+6.	My recollection is that COMPILE.AVALARA.GENERIC works pretty much the same but as I don't know how other systems report problems with compiles, it requires you need to manually indicate following each compile whether it was okay or not…
+
+In any event, assuming code compiles correctly there are a couple of tools to assist re: integrating to a site's system:
+
+1.	AVALARA.PGM – This will post test transactions/invoices and SO's to Avalara and it also displays the results to the screen.  There are a number of include files (see the AVALARA.BP AVALARA.INCLUDE… items in the repo…) that define the fields returned from Avalara and the AVALARA.PGM will display those field definitions and the corresponding data returned by Avalara.
+2.	There's are a number of SAMPLE template programs in AVALARA.BP that were designed to show how calls to Avalara are handled.  A good one to look at is AVALARA.INVOICE.SAMPLE.SUB which is what's used by the AVALARA.PGM to post Invoice examples and display the returned data.  There's also an AVALARA.PROMAN folder in the repo that has the sub's used by Proman to interface with Avalara; essentially these can be used as sample routines to show users/devs what's needed when posting a transaction and how to integrate the data returned by Avalara.  The primary example to look at there is AVALARA.IVH.SUB which is effectively an expansion of AVALARA.INVOICE.SAMPLE.SUB, that shows how the transaction request is populate from PROMAN data and how PROMAN data is update using the transaction response info…      
+
+For any given new site, the requirements would effectively be:
+
+1.	Install and Compile the code – as noted for OPENQM and JBASE the code should compile without problems (x-fingers); other systems may require tweaking some of the subs if there are syntax diff's.
+2.	Run the AVALARA.CONFIG routine to initialize the system.  Note: if multiple accounts (DEMO/LIVE/etc…) are involved you do need to run AVALARA.CONFIG for each account.  Generally it took me about an hour to demo AVALARA.CONFIG for Tony @ Colwell.
+3.	Use the AVALARA.PGM to demo what info is returned from Avalara/how it is structured
+4.	Walk the site's programmers through the SAMPLE routines to show how they can be modified to address their integration – either that or code integration subroutines for them.  My guess is demo'ing the samples takes about 2 hours for them to get a handle on what's required.  Maybe a little more…  Alternately coding an integration subroutine myself would probably require at least that much time for them to demo how/where to integrate into there software, and probably an additional 3 to 5 hours (maybe more) to code an Invoice posting subroutine. 
