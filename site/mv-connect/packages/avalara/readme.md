@@ -1,6 +1,6 @@
 1.	Download the repo
 2.	Compile the AVALARA.BP AVALARA.LIST.SUB routine (this is a prerequisite for the COMPILE routines)
-3.	Compile AVALARA.BP COMPILE.AVALARA.JBASE
+3.	Compile AVALARA.BP COMPILE.AVALARA.JBASE (this is for jBASE, skip to step 6 for other system installs)
 4.	Run COMPILE.AVALARA.JBASE – this will display the programs that need to be compiled; there's an option to compile all or you can select individual items. The compile routines will compile each item and diagnose from the BASIC output whether there was problem, and either mark the item as OK/Not OK (JBase and OPENQM should compile without any problems…).  Any items that do not compile will be listed at the end and require fixing whatever the compile issue was and then recompile when fixed.
 6.	My recollection is that COMPILE.AVALARA.GENERIC works pretty much the same but as I don't know how other systems report problems with compiles, it requires you need to manually indicate following each compile whether it was okay or not…
 
